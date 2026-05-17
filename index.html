@@ -1205,38 +1205,95 @@
     }
 
     /* =============================================
-       RESPONSIVE — TABLET (768px)
+       RESPONSIVE — TABLET (900px)
     ============================================= */
     @media (max-width: 900px) {
-      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-      .about-photo { align-items: center; }
-      .photo-frame { width: 200px; height: 235px; }
-      .projects-grid { grid-template-columns: 1fr; }
-
       .nav-links { display: none; }
       .hamburger { display: flex; }
       .mobile-menu { display: flex; }
 
+      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .about-photo { align-items: center; }
+      .photo-frame { width: 180px; height: 215px; }
+      .about-right { gap: 2rem; }
+
+      .projects-grid { grid-template-columns: 1fr; }
+
       .form-row { grid-template-columns: 1fr; }
+
+      .hero-stats { gap: 1.5rem; }
+      .hero-sub { max-width: 100%; }
     }
 
     /* =============================================
-       RESPONSIVE — MOBILE (375px)
+       RESPONSIVE — MOBILE (480px)
     ============================================= */
     @media (max-width: 480px) {
-      section { padding: 4rem 0; }
-      .container { padding: 0 1.25rem; }
+      section { padding: 3.5rem 0; }
+      .container { padding: 0 1.1rem; }
 
-      .hero-cta { flex-direction: column; }
-      .hero-cta .btn { justify-content: center; }
-      .hero-stats { gap: 1.5rem; }
+      /* Nav */
+      .nav { padding: 0.85rem 1.1rem; }
+      .nav-logo { font-size: 1.2rem; }
 
-      .timeline { padding-left: 1rem; }
-      .timeline-item { padding-left: 1.75rem; }
+      /* Hero */
+      #hero { padding-top: 75px; }
+      .hero-badge { font-size: 0.78rem; padding: 0.35rem 0.85rem; margin-bottom: 1.4rem; }
+      .hero-sub { font-size: 0.92rem; margin-bottom: 2rem; }
+      .hero-typing-wrapper { font-size: 1rem; min-height: 2rem; }
 
-      .contact-form { padding: 1.25rem; }
+      .hero-cta { flex-direction: column; gap: 0.75rem; }
+      .hero-cta .btn { justify-content: center; width: 100%; }
 
-      .nav { padding: 0.9rem 1.25rem; }
+      /* Stats — 2×2 grid */
+      .hero-stats {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.25rem 1rem;
+        margin-bottom: 2rem;
+      }
+      .stat-number { font-size: 1.6rem; }
+      .stat-label  { font-size: 0.75rem; }
+
+      /* Social row */
+      .hero-socials { gap: 0.65rem; }
+      .social-link  { width: 40px; height: 40px; font-size: 1.05rem; }
+
+      /* About */
+      .photo-frame  { width: 150px; height: 178px; }
+      .about-bio p  { font-size: 0.93rem; }
+      .info-card    { padding: 0.85rem 1rem; }
+      .info-card-value { font-size: 0.85rem; }
+      .info-card-icon  { width: 34px; height: 34px; font-size: 1rem; }
+
+      /* Skills */
+      .skill-pill { font-size: 0.8rem; padding: 0.4rem 0.8rem; }
+      .skills-wrapper { gap: 2rem; }
+
+      /* Projects */
+      .project-card  { padding: 1.3rem; }
+      .project-title { font-size: 1.05rem; }
+      .project-desc  { font-size: 0.9rem; }
+
+      /* Timeline */
+      .timeline      { padding-left: 1rem; }
+      .timeline-item { padding-left: 1.75rem; padding-bottom: 2rem; }
+      .timeline-card { padding: 1.1rem; }
+      .timeline-role { font-size: 1rem; }
+      .timeline-points li { font-size: 0.875rem; }
+
+      /* Contact */
+      .contact-wrapper { margin-top: 1.75rem; }
+      .contact-form    { padding: 1.2rem; }
+      .contact-sub     { font-size: 0.95rem; }
+
+      /* Section text */
+      .section-desc { font-size: 0.93rem; }
+
+      /* Footer */
+      .footer-links { gap: 0.85rem; }
+      .footer-links a { font-size: 0.8rem; }
+      .footer-socials { gap: 0.6rem; }
     }
 
     /* =============================================
