@@ -6,6 +6,8 @@
   <title>Khalid Mohamed Rabe — Software & AI Engineer</title>
   <meta name="description" content="The engineering portfolio of Khalid Mohamed Rabe: software, applied AI, and product work shaped between Nairobi and Istanbul.">
   <meta name="author" content="Khalid Mohamed Rabe">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; worker-src 'none'; script-src 'self' https://cdn.jsdelivr.net 'sha256-EoUm6tk/H2mroLXWh/v+IALoLtwbgPaUi2lD79sFVNY='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://api.emailjs.com; form-action 'self'; upgrade-insecure-requests">
   <meta name="theme-color" content="#f2efe8">
   <meta property="og:title" content="Khalid Mohamed Rabe — Software & AI Engineer">
   <meta property="og:description" content="Practical software across mobile, web, and machine learning — from Nairobi to Istanbul.">
@@ -15,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4.4.1/dist/email.min.js" integrity="sha384-SALc35EccAf6RzGw4iNsyj7kTPr33K7RoGzYu+7heZhT8s0GZouafRiCg1qy44AS" crossorigin="anonymous"></script>
   <style>
     :root {
       --paper: #f2efe8;
@@ -187,6 +189,7 @@
     .contact-links a { font-family: var(--mono); font-size: .78rem; }
     .contact-form { display: grid; grid-template-columns: 1fr 1fr; gap: 1.3rem; }
     .field { min-width: 0; }
+    .form-trap { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
     .field-full { grid-column: 1 / -1; }
     label { display: block; margin-bottom: .45rem; font: 500 .68rem/1.4 var(--mono); text-transform: uppercase; letter-spacing: .07em; }
     input, textarea {
@@ -428,7 +431,7 @@
             <div><dt>Education</dt><dd>BSc Software Development, Istanbul Aydin University — graduated June 2026</dd></div>
             <div><dt>Based</dt><dd>Istanbul, Turkey · originally Nairobi, Kenya</dd></div>
             <div><dt>Focus</dt><dd>Software engineering, applied AI, full-stack product development</dd></div>
-            <div><dt>Status</dt><dd>Open to full-time roles and selected freelance work</dd></div>
+            <div><dt>Status</dt><dd>Open to software engineering and applied AI roles</dd></div>
           </dl>
         </div>
       </div>
@@ -463,7 +466,7 @@
         <h2 class="contact-heading" id="contact-title">Have a useful problem to solve?</h2>
         <div class="contact-grid">
           <div class="contact-copy">
-            <p>I’m open to software engineering and applied AI roles, as well as selected freelance projects. Tell me what you are building and where the hard part is.</p>
+            <p>I’m open to software engineering and applied AI opportunities. Get in touch to discuss roles, technical work, or professional collaboration.</p>
             <ul class="contact-links">
               <li><a href="mailto:lidumoha9@gmail.com">lidumoha9@gmail.com</a></li>
               <li><a href="https://github.com/KhalidM10" target="_blank" rel="noopener noreferrer">GitHub ↗</a></li>
@@ -472,10 +475,11 @@
             </ul>
           </div>
           <form class="contact-form" id="contact-form" novalidate>
-            <div class="field"><label for="name">Name</label><input id="name" name="name" type="text" autocomplete="name" required><span class="form-error" id="name-error">Please enter your name.</span></div>
-            <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required><span class="form-error" id="email-error">Please enter a valid email.</span></div>
-            <div class="field field-full"><label for="subject">Subject</label><input id="subject" name="subject" type="text" required><span class="form-error" id="subject-error">Please enter a subject.</span></div>
-            <div class="field field-full"><label for="message">Message</label><textarea id="message" name="message" required></textarea><span class="form-error" id="message-error">Please enter your message.</span></div>
+            <div class="form-trap" aria-hidden="true"><label for="website">Website</label><input id="website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+            <div class="field"><label for="name">Name</label><input id="name" name="name" type="text" autocomplete="name" maxlength="100" required><span class="form-error" id="name-error">Please enter your name.</span></div>
+            <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" maxlength="254" required><span class="form-error" id="email-error">Please enter a valid email.</span></div>
+            <div class="field field-full"><label for="subject">Subject</label><input id="subject" name="subject" type="text" maxlength="150" required><span class="form-error" id="subject-error">Please enter a subject.</span></div>
+            <div class="field field-full"><label for="message">Message</label><textarea id="message" name="message" maxlength="3000" required></textarea><span class="form-error" id="message-error">Please enter your message.</span></div>
             <div class="submit-row"><button class="button" type="submit">Send message</button></div>
             <div class="form-status form-success" id="form-success" role="status" aria-live="polite">Message sent. I’ll get back to you soon.</div>
             <div class="form-status form-send-error" id="form-send-error" role="alert">Something went wrong. Email me directly at <a href="mailto:lidumoha9@gmail.com">lidumoha9@gmail.com</a>.</div>
@@ -653,7 +657,10 @@
     const EMAILJS_PUBLIC_KEY = 'hQ7MetsDwq9-q6rHt';
     const EMAILJS_SERVICE_ID = 'service_i6mjqpg';
     const EMAILJS_TEMPLATE_ID = 'template_8vas6bm';
-    emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+    emailjs.init({
+      publicKey: EMAILJS_PUBLIC_KEY,
+      limitRate: { id: 'portfolio-contact', throttle: 10000 }
+    });
 
     const form = document.getElementById('contact-form');
     const submitButton = form.querySelector('button[type="submit"]');
@@ -674,6 +681,11 @@
       event.preventDefault();
       successBox.classList.remove('show');
       sendErrorBox.classList.remove('show');
+      if (document.getElementById('website').value) {
+        form.reset();
+        successBox.classList.add('show');
+        return;
+      }
       const values = Object.fromEntries(fields.map(field => [field, document.getElementById(field).value.trim()]));
       const invalid = fields.filter(field => !values[field] || (field === 'email' && !validEmail(values.email)));
       fields.forEach(field => fieldError(field, invalid.includes(field)));
