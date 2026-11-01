@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Khalid Mohamed Rabe — Software & AI Engineer</title>
   <meta name="description" content="Portfolio of Khalid Mohamed Rabe — software engineer building production web products, distributed systems, and applied AI.">
-  <meta name="theme-color" content="#08060d">
+  <meta name="theme-color" content="#0b0c0e">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; worker-src 'none'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://api.emailjs.com; form-action 'self'; upgrade-insecure-requests">
   <meta property="og:title" content="Khalid Mohamed Rabe — Software & AI Engineer">
   <meta property="og:description" content="Software engineered to work beyond the demo.">
@@ -14,95 +14,445 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20260811">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400..700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=20261101">
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4.4.1/dist/email.min.js" integrity="sha384-SALc35EccAf6RzGw4iNsyj7kTPr33K7RoGzYu+7heZhT8s0GZouafRiCg1qy44AS" crossorigin="anonymous" defer></script>
-  <script src="site.js?v=20260811" defer></script>
+  <script src="site.js?v=20261101" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-  <canvas class="ribbons" id="ribbons" aria-hidden="true"></canvas>
+  <canvas class="bg-field" id="bg-field" aria-hidden="true"></canvas>
 
-  <header class="site-header">
-    <nav class="nav shell" aria-label="Primary navigation">
-      <a class="brand" href="#top"><span class="brand-mark">K</span><span>Khalid Rabe<small>Software / AI engineer</small></span></a>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links">Menu <span>+</span></button>
-      <div class="nav-links" id="nav-links">
-        <a href="#about">About</a><a href="#services">Capabilities</a><a href="#work">Work</a><a href="#experience">Experience</a><a href="#contact">Contact</a>
-        <a class="resume-link" href="output/pdf/khalid-mohamed-rabe-resume.pdf" download="Khalid-Mohamed-Rabe-Resume.pdf">Download CV <span>↓</span></a>
-        <button class="theme-toggle" type="button" aria-label="Switch color theme"><span aria-hidden="true">☼</span></button>
-      </div>
-    </nav>
+  <header class="statusbar" aria-label="Site status">
+    <button class="files-toggle" type="button" aria-expanded="false" aria-controls="explorer"><span aria-hidden="true">☰</span> Files</button>
+    <a class="status-brand" href="#readme"><span class="brand-mark">K</span>khalid-rabe</a>
+    <span class="status-item status-live"><i aria-hidden="true"></i>open to work</span>
+    <span class="status-item status-hide-sm">IST · NBO <time id="clock">--:--</time> UTC+3</span>
+    <span class="status-item status-hide-sm">branch <b>main</b> ✓</span>
+    <span class="status-spacer"></span>
+    <button class="palette-trigger" type="button" aria-haspopup="dialog"><span>Jump to…</span><kbd>Ctrl K</kbd></button>
+    <a class="status-cv" href="output/pdf/khalid-mohamed-rabe-resume.pdf" download="Khalid-Mohamed-Rabe-Resume.pdf">cv.pdf ↓</a>
+    <button class="theme-toggle" type="button" aria-label="Switch color theme"><span aria-hidden="true">☼</span></button>
   </header>
 
-  <main id="main">
-    <section class="hero shell" id="top">
-      <div class="hero-copy reveal">
-        <h1>Software built<br>to work <span>beyond<br>the demo.</span></h1>
-        <p class="hero-intro">I’m Khalid, a software and AI engineer turning complex requirements into clear, resilient products for the web, mobile, and intelligent systems.</p>
-        <div class="hero-actions"><a class="button primary" href="#work">Explore my work <span>↗</span></a><a class="button ghost" href="#contact">Start a conversation</a></div>
-        <div class="social-row"><span>Find me</span><a href="https://github.com/KhalidM10" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://www.linkedin.com/in/khalid-rabe-668216280/" target="_blank" rel="noopener noreferrer">LinkedIn</a></div>
+  <div class="workspace">
+    <nav class="explorer" id="explorer" aria-label="Site files">
+      <p class="explorer-title">Explorer</p>
+      <p class="tree-root">▾ khalid/</p>
+      <ul class="tree">
+        <li><a href="#readme" data-file="readme.md"><span class="ext md">md</span>readme.md</a></li>
+        <li><a href="#about" data-file="about.md"><span class="ext md">md</span>about.md</a></li>
+        <li><a href="#capabilities" data-file="capabilities.md"><span class="ext md">md</span>capabilities.md</a></li>
+        <li class="tree-dir"><a href="#projects" data-file="projects/"><span class="ext dir">▾</span>projects/</a>
+          <ul>
+            <li><a href="#/projects/continental" data-file="projects/continental.md"><span class="ext ts">ts</span>continental</a></li>
+            <li><a href="#/projects/doc-platform" data-file="projects/doc-platform.md"><span class="ext py">py</span>doc-platform</a></li>
+            <li><a href="#/projects/medassist" data-file="projects/medassist.md"><span class="ext ts">ts</span>medassist-ai</a></li>
+            <li><a href="#/projects/water" data-file="projects/water-potability.md"><span class="ext py">py</span>water-potability</a></li>
+            <li><a href="#/projects/safarigo" data-file="projects/safarigo.md"><span class="ext ts">ts</span>safarigo</a></li>
+          </ul>
+        </li>
+        <li><a href="#experience" data-file="experience.log"><span class="ext log">log</span>experience.log</a></li>
+        <li><a href="#contact" data-file="contact.md"><span class="ext md">md</span>contact.md</a></li>
+        <li><a href="output/pdf/khalid-mohamed-rabe-resume.pdf" download="Khalid-Mohamed-Rabe-Resume.pdf"><span class="ext pdf">pdf</span>cv.pdf</a></li>
+      </ul>
+      <div class="explorer-foot">
+        <p class="explorer-title">Remotes</p>
+        <a href="https://github.com/KhalidM10" target="_blank" rel="noopener noreferrer">github ↗</a>
+        <a href="https://www.linkedin.com/in/khalid-rabe-668216280/" target="_blank" rel="noopener noreferrer">linkedin ↗</a>
+        <a href="mailto:lidumoha9@gmail.com">email ↗</a>
       </div>
-      <div class="hero-art reveal">
-        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="portrait-glow"></div>
-        <figure class="portrait"><img src="khalid-portrait.jpg" width="1200" height="1600" alt="Khalid Mohamed Rabe seated in a brown leather jacket and sunglasses" fetchpriority="high"></figure>
-        <div class="float-card location"><span>Based in</span><strong>Istanbul, TR</strong><small>Nairobi roots</small></div>
-        <div class="float-card focus"><span>Current focus</span><strong>Product systems</strong><small>Applied AI + web</small></div>
-        <div class="code-badge">&lt;/&gt;</div>
-      </div>
-    </section>
+    </nav>
 
-    <section class="proof shell reveal" aria-label="Quick facts">
-      <div><strong>04+</strong><span>Production-focused<br>case studies</span></div>
-      <div><strong>03</strong><span>Engineering<br>disciplines</span></div>
-      <div><strong>02</strong><span>Cities shaping<br>my perspective</span></div>
-      <div class="proof-wide"><span>Core stack</span><strong>React · TypeScript · Python · FastAPI</strong></div>
-    </section>
+    <main id="main" class="editor">
+      <div class="tabbar" aria-hidden="true"><span class="tab"><span class="ext md">md</span><span id="active-file">readme.md</span></span><span class="crumb">khalid / <span id="active-crumb">readme.md</span></span></div>
 
-    <section class="about section shell" id="about">
-      <header class="section-heading reveal"><p class="eyebrow">01 / About</p><h2>Engineering with<br><span>real-world context.</span></h2></header>
-      <div class="about-grid">
-        <p class="about-lead reveal">Useful software has to survive contact with real people, devices, networks, budgets, and uncertainty.</p>
-        <div class="about-copy reveal"><p>I grew up in Nairobi and moved to Istanbul to study software development. Working across contexts taught me to question the ideal version of a product and build for the conditions it will actually meet.</p><p>I move comfortably between product engineering and applied AI, from shaping the interface to designing APIs, data flows, evaluation, testing, and delivery.</p><a class="inline-link" href="output/pdf/khalid-mohamed-rabe-resume.pdf" download="Khalid-Mohamed-Rabe-Resume.pdf">Read the full résumé <span>↗</span></a></div>
-      </div>
-    </section>
-
-    <section class="services section" id="services">
-      <div class="shell">
-        <header class="section-heading centered reveal"><p class="eyebrow">02 / What I do</p><h2>Capabilities built around <span>outcomes.</span></h2><p>Open a discipline to see how I use it.</p></header>
-        <div class="service-stack reveal">
-          <article class="service active"><button type="button" aria-expanded="true"><b>01</b><span>Product engineering</span><small>React · TypeScript · APIs</small><i>−</i></button><div class="service-detail"><p>I design and build responsive products from information architecture through tested implementation, with accessibility and real user paths treated as core requirements.</p><strong>Used in Continental, MedAssist and SafariGo</strong></div></article>
-          <article class="service"><button type="button" aria-expanded="false"><b>02</b><span>Applied AI & data</span><small>Python · ML · Search</small><i>+</i></button><div class="service-detail"><p>I turn model capability into dependable product behaviour through evaluation, conservative fallbacks, semantic retrieval, OCR, and explicit handling of uncertainty.</p><strong>Used in Document Platform and Water Potability</strong></div></article>
-          <article class="service"><button type="button" aria-expanded="false"><b>03</b><span>Systems & delivery</span><small>FastAPI · Docker · Cloud</small><i>+</i></button><div class="service-detail"><p>I structure services, queues, databases, observability, CI checks, and deployment paths so the system remains understandable after launch.</p><strong>Used across production and distributed architectures</strong></div></article>
-          <article class="service"><button type="button" aria-expanded="false"><b>04</b><span>Mobile development</span><small>Flutter · Dart · Kotlin</small><i>+</i></button><div class="service-detail"><p>I build device-conscious interfaces with focused flows, resilient state, and interaction patterns suited to mobile use rather than compressed desktop layouts.</p><strong>Native and cross-platform application work</strong></div></article>
+      <section class="file hero" id="readme" data-file="readme.md" aria-labelledby="hero-title">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <p class="comment">&lt;!-- readme.md · last edited from Istanbul --&gt;</p>
+            <h1 id="hero-title">Software built to work <em>beyond the demo.</em></h1>
+            <p class="lede">I’m Khalid, a software and AI engineer. I turn complex requirements into clear, resilient products for the web, mobile, and intelligent systems.</p>
+            <div class="actions">
+              <a class="button primary" href="#projects">Open projects/ <span>→</span></a>
+              <a class="button" href="#contact">Start a conversation</a>
+            </div>
+          </div>
+          <figure class="portrait">
+            <img src="khalid-selfie.jpg" width="1125" height="2000" alt="Khalid Mohamed Rabe in a black t-shirt, lit by warm afternoon sunlight" fetchpriority="high">
+            <figcaption>khalid-selfie.jpg · 1125×2000</figcaption>
+          </figure>
         </div>
-      </div>
-    </section>
+        <dl class="frontmatter">
+          <div><dt>based_in</dt><dd>Istanbul, TR <span>// Nairobi roots</span></dd></div>
+          <div><dt>focus</dt><dd>Product systems + applied AI</dd></div>
+          <div><dt>stack</dt><dd>React · TypeScript · Python · FastAPI</dd></div>
+          <div><dt>shipped</dt><dd>5 case studies, 1 live business</dd></div>
+        </dl>
+      </section>
 
-    <section class="work section shell" id="work">
-      <header class="section-heading split reveal"><div><p class="eyebrow">03 / Selected work</p><h2>Products with a<br><span>reason to exist.</span></h2></div><p>Selected projects across product engineering, intelligent systems, and public-interest technology.</p></header>
-      <div class="project-filters reveal" role="group" aria-label="Filter projects"><button class="active" type="button" data-filter="all">All work</button><button type="button" data-filter="product">Products</button><button type="button" data-filter="ai">AI / Data</button><button type="button" data-filter="systems">Systems</button></div>
-      <div class="project-grid">
-        <article class="project-card project-featured reveal" data-category="product">
-          <a class="project-image" href="https://continental-dry-cleaners.vercel.app" target="_blank" rel="noopener noreferrer"><img src="continental-preview.png" width="1425" height="891" alt="Continental Dry Cleaners website"><span>Live website ↗</span></a>
-          <div class="project-info"><p>01 / Production website</p><h3>Continental<br>Dry Cleaners</h3><p>A mobile-first service and ordering experience for a real Nairobi business, with transparent pricing, guided WhatsApp conversion, theme support, and production QA.</p><ul><li>React 19</li><li>TypeScript</li><li>GSAP</li><li>Vercel</li></ul></div>
+      <section class="file" id="about" data-file="about.md" aria-labelledby="about-title">
+        <header class="file-head"><span class="ln">01</span><h2 id="about-title"><span class="hash">#</span> Engineering with real-world context</h2></header>
+        <div class="two-col">
+          <p class="pull">Useful software has to survive contact with real people, devices, networks, budgets, and uncertainty.</p>
+          <div class="prose">
+            <p>I grew up in Nairobi and moved to Istanbul to study software development. Building across both taught me to question the ideal version of a product and design for the conditions it will actually meet.</p>
+            <p>I move between product engineering and applied AI — from interface and APIs to data flows, evaluation, testing, and delivery.</p>
+            <a class="inline-link" href="output/pdf/khalid-mohamed-rabe-resume.pdf" download="Khalid-Mohamed-Rabe-Resume.pdf">Read the full résumé ↗</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="file" id="capabilities" data-file="capabilities.md" aria-labelledby="cap-title">
+        <header class="file-head"><span class="ln">02</span><h2 id="cap-title"><span class="hash">#</span> Capabilities, built around outcomes</h2></header>
+        <div class="cap-grid">
+          <article class="cap"><p class="cap-id">01 · product</p><h3>Product engineering</h3><p>Responsive products from information architecture to tested implementation, with accessibility and real user paths as core requirements.</p><p class="tags">React · TypeScript · APIs</p></article>
+          <article class="cap"><p class="cap-id">02 · ai</p><h3>Applied AI &amp; data</h3><p>Model capability turned into dependable behaviour: evaluation, conservative fallbacks, semantic retrieval, OCR, explicit uncertainty.</p><p class="tags">Python · ML · Search</p></article>
+          <article class="cap"><p class="cap-id">03 · systems</p><h3>Systems &amp; delivery</h3><p>Services, queues, databases, observability, CI and deployment structured so the system stays understandable after launch.</p><p class="tags">FastAPI · Docker · Cloud</p></article>
+          <article class="cap"><p class="cap-id">04 · mobile</p><h3>Mobile development</h3><p>Device-conscious interfaces with focused flows and resilient state — built for mobile, not compressed from desktop.</p><p class="tags">Flutter · Dart · Kotlin</p></article>
+        </div>
+      </section>
+
+      <section class="file" id="projects" data-file="projects/" aria-labelledby="proj-title">
+        <header class="file-head"><span class="ln">03</span><h2 id="proj-title"><span class="hash">$</span> ls projects/</h2></header>
+        <div class="filters" role="group" aria-label="Filter projects">
+          <button class="active" type="button" data-filter="all" aria-pressed="true">--all</button>
+          <button type="button" data-filter="product" aria-pressed="false">--product</button>
+          <button type="button" data-filter="ai" aria-pressed="false">--ai</button>
+          <button type="button" data-filter="systems" aria-pressed="false">--systems</button>
+        </div>
+
+        <div class="projects">
+          <article class="project featured" id="continental" data-file="projects/continental.md" data-category="product">
+            <a class="shot" href="#/projects/continental" aria-label="Read the Continental Dry Cleaners case study">
+              <span class="shot-bar"><i></i><i></i><i></i><span>continental-dry-cleaners.vercel.app</span></span>
+              <img src="continental-preview.png" width="1425" height="891" alt="Continental Dry Cleaners website home page" loading="lazy">
+            </a>
+            <div class="project-body">
+              <p class="path">projects/continental <span class="badge live">● live</span></p>
+              <h3>Continental Dry Cleaners</h3>
+              <p>Mobile-first service and ordering for a real Nairobi business: transparent pricing, guided WhatsApp conversion, theming, and production QA.</p>
+              <ul class="stack"><li>React 19</li><li>TypeScript</li><li>GSAP</li><li>Vercel</li></ul>
+              <a class="project-link" href="#/projects/continental">Read the case study →</a>
+            </div>
+          </article>
+
+          <article class="project" id="doc-platform" data-file="projects/doc-platform.md" data-category="systems ai">
+            <div class="preview preview-doc" aria-hidden="true">
+              <span>ocr-svc</span><span>search-svc</span><span>auth-svc</span><span>queue</span>
+              <b>4 services · RabbitMQ · traced</b>
+            </div>
+            <div class="project-body">
+              <p class="path">projects/doc-platform <span class="badge">distributed ai</span></p>
+              <h3>AI document platform</h3>
+              <p>Four independently tested services for OCR, semantic search, authentication, queues, and observability.</p>
+              <ul class="stack"><li>FastAPI</li><li>Docker</li><li>RabbitMQ</li></ul>
+              <a class="project-link" href="#/projects/doc-platform">Read the case study →</a>
+            </div>
+          </article>
+
+          <article class="project" id="medassist" data-file="projects/medassist.md" data-category="product ai">
+            <div class="preview preview-med" aria-hidden="true">
+              <p>&gt; triage --conservative</p><p class="ok">✓ 13 clinics indexed</p><p class="ok">✓ appointments · pharmacy</p><p class="dim">Kenya-first care</p>
+            </div>
+            <div class="project-body">
+              <p class="path">projects/medassist-ai <span class="badge">health tech</span></p>
+              <h3>MedAssist AI</h3>
+              <p>Conservative symptom guidance connected to clinic discovery, appointments, medicine ordering, and role-based administration.</p>
+              <ul class="stack"><li>React</li><li>AI triage</li><li>Role systems</li></ul>
+              <a class="project-link" href="#/projects/medassist">Read the case study →</a>
+            </div>
+          </article>
+
+          <article class="project" id="water" data-file="projects/water-potability.md" data-category="ai">
+            <div class="preview preview-water" aria-hidden="true">
+              <strong>67.4%</strong><span>best test accuracy</span>
+              <div class="bars"><i></i><i></i><i></i></div>
+              <small>3 models · 3,276 samples</small>
+            </div>
+            <div class="project-body">
+              <p class="path">projects/water-potability <span class="badge">ml study</span></p>
+              <h3>Water potability</h3>
+              <p>A documented classification study comparing three models across 3,276 chemical measurement records.</p>
+              <ul class="stack"><li>Python</li><li>scikit-learn</li><li>Evaluation</li></ul>
+              <a class="project-link" href="#/projects/water">Read the case study →</a>
+            </div>
+          </article>
+
+          <article class="project" id="safarigo" data-file="projects/safarigo.md" data-category="product">
+            <div class="preview preview-safari" aria-hidden="true">
+              <p><span>NBO</span><i></i><span>MBA</span></p><b>Seat 14A · selected</b>
+            </div>
+            <div class="project-body">
+              <p class="path">projects/safarigo <span class="badge wip">◐ in progress</span></p>
+              <h3>SafariGo</h3>
+              <p>Kenya-focused intercity booking: route discovery, real-time seat state, passenger details, and confirmation.</p>
+              <ul class="stack"><li>TypeScript</li><li>Product design</li><li>Private build</li></ul>
+              <a class="project-link" href="#/projects/safarigo">Read the case study →</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="file" id="experience" data-file="experience.log" aria-labelledby="exp-title">
+        <header class="file-head"><span class="ln">04</span><h2 id="exp-title"><span class="hash">$</span> tail experience.log</h2></header>
+        <ol class="log">
+          <li><time>2024 → now</time><span class="lvl work">WORK</span><div><h3>Independent software developer</h3><p>Shipping web and mobile products from requirements and architecture through QA and deployment.</p></div></li>
+          <li><time>2023 → 2024</time><span class="lvl work">WORK</span><div><h3>Software development intern</h3><p>Contributed within active development cycles using collaborative workflows, maintenance, and code review.</p></div></li>
+          <li><time>2022 → 2026</time><span class="lvl edu">EDU</span><div><h3>BSc Software Development · Istanbul Aydin University</h3><p>AI, cloud computing, mobile development, testing, algorithms, and system design.</p></div></li>
+          <li><time>ongoing</time><span class="lvl learn">LEARN</span><div><h3>Independent practice</h3><p>Production React systems, applied ML evaluation, distributed services, accessibility, and delivery.</p></div></li>
+        </ol>
+      </section>
+
+      <section class="file contact" id="contact" data-file="contact.md" aria-labelledby="contact-title">
+        <header class="file-head"><span class="ln">05</span><h2 id="contact-title"><span class="hash">#</span> Have a problem worth <em>solving?</em></h2></header>
+        <div class="contact-grid">
+          <div>
+            <p class="lede">I’m open to software engineering and applied AI roles. Tell me what you’re building and where it needs to go.</p>
+            <ul class="channels">
+              <li><a href="mailto:lidumoha9@gmail.com"><span>email</span>lidumoha9@gmail.com ↗</a></li>
+              <li><a href="https://www.linkedin.com/in/khalid-rabe-668216280/" target="_blank" rel="noopener noreferrer"><span>linkedin</span>khalid-rabe ↗</a></li>
+              <li><a href="https://wa.me/905057612920" target="_blank" rel="noopener noreferrer"><span>whatsapp</span>message me ↗</a></li>
+              <li><a href="https://github.com/KhalidM10" target="_blank" rel="noopener noreferrer"><span>github</span>KhalidM10 ↗</a></li>
+            </ul>
+          </div>
+          <form class="contact-form" id="contact-form" novalidate>
+            <p class="form-head">new-message.md</p>
+            <div class="form-trap" aria-hidden="true"><label for="website">Website</label><input id="website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+            <div class="field"><label for="name">name:</label><input id="name" name="name" type="text" autocomplete="name" maxlength="100" placeholder="Jane Doe" required><span class="form-error" id="name-error">Enter your name.</span></div>
+            <div class="field"><label for="email">email:</label><input id="email" name="email" type="email" autocomplete="email" maxlength="254" placeholder="jane@company.com" required><span class="form-error" id="email-error">Enter a valid email.</span></div>
+            <div class="field"><label for="subject">subject:</label><input id="subject" name="subject" type="text" maxlength="150" placeholder="A role, project or idea" required><span class="form-error" id="subject-error">Enter a subject.</span></div>
+            <div class="field"><label for="message">message:</label><textarea id="message" name="message" maxlength="3000" placeholder="Tell me about the challenge…" required></textarea><span class="form-error" id="message-error">Enter your message.</span></div>
+            <button class="button primary" type="submit">Send message ↗</button>
+            <div class="form-status form-success" id="form-success" role="status">✓ Message sent. I’ll get back to you soon.</div>
+            <div class="form-status form-send-error" id="form-send-error" role="alert">✗ Could not send. Email me at <a href="mailto:lidumoha9@gmail.com">lidumoha9@gmail.com</a>.</div>
+          </form>
+        </div>
+      </section>
+
+      <div class="reader" id="reader" hidden>
+
+        <article class="case" id="case-continental" data-name="Continental Dry Cleaners" aria-labelledby="case-continental-title" hidden>
+          <a class="case-back" href="#continental">← cd ../projects</a>
+          <p class="path">projects/continental/README.md <span class="badge live">● live</span></p>
+          <h1 id="case-continental-title" tabindex="-1">Continental Dry Cleaners</h1>
+          <p class="case-lede">A production website for a real Nairobi dry-cleaning business: collection and on-site cleaning across the city, explained clearly enough that a customer on a phone can go from “how much?” to a booked pickup in a few taps.</p>
+          <dl class="case-meta">
+            <div><dt>role</dt><dd>Design, front-end engineering, QA, deployment</dd></div>
+            <div><dt>type</dt><dd>Client project · live in production</dd></div>
+            <div><dt>stack</dt><dd>React 19 · TypeScript · GSAP · Vercel</dd></div>
+            <div><dt>links</dt><dd><a href="https://continental-dry-cleaners.vercel.app" target="_blank" rel="noopener noreferrer">continental-dry-cleaners.vercel.app ↗</a></dd></div>
+          </dl>
+          <figure class="case-figure"><img src="continental-preview.png" width="1425" height="891" alt="Continental Dry Cleaners home page" loading="lazy"><figcaption>The live home page.</figcaption></figure>
+
+          <h2>Context</h2>
+          <p>Continental is a working business, not a concept. Its customers arrive with practical questions: what do you clean, what does it cost, do you come to me, and how do I book? The site had to answer them clearly, then hand the customer straight to a conversation with the business.</p>
+
+          <h2>What I built</h2>
+          <ul class="case-list">
+            <li><b>A mobile-first service experience.</b> The layout is designed for phones first and scales up to desktop, because that is where customers arrive.</li>
+            <li><b>Transparent pricing.</b> Prices are shown up front, so customers can decide before they reach out. Not knowing the cost is one of the most common reasons people don’t enquire at all.</li>
+            <li><b>Guided WhatsApp conversion.</b> WhatsApp is where this business already talks to customers, so the site works with it instead of replacing it. The flow guides a visitor towards a WhatsApp conversation with the business, keeping the step from interest to enquiry short.</li>
+            <li><b>Collection and on-site cleaning.</b> Both ways of working with Continental across Nairobi are explained on the site.</li>
+            <li><b>Theme support.</b> Light and dark themes.</li>
+            <li><b>Considered motion.</b> GSAP animation adds polish without getting in the way of the content.</li>
+          </ul>
+
+          <h2>Engineering decisions</h2>
+          <p><b>React 19 with TypeScript.</b> Typed service and pricing data keep the catalogue consistent as it grows, and catch mistakes at build time rather than in front of a customer.</p>
+          <p><b>Vercel for hosting.</b> Fast global delivery, HTTPS by default, and simple deploys for a site a small business depends on.</p>
+
+          <h2>Quality</h2>
+          <p>Because real customers use it, the site went through production QA before launch: checking content and prices, testing the conversion flow end to end, and reviewing layout, readability, and interaction across screen sizes and both themes.</p>
+
+          <h2>What I learned</h2>
+          <p>Shipping for a real business changes what “done” means. The measure is not how the site looks in a portfolio but whether the owner gets better enquiries. Meeting customers where they already are (phones, WhatsApp, clear prices) mattered more than any single feature.</p>
+          <nav class="case-nav" aria-label="More projects"><a href="#/projects/safarigo">← safarigo</a><a href="#/projects/doc-platform">doc-platform →</a></nav>
         </article>
-        <article class="project-card reveal" data-category="systems ai"><div class="project-graphic graphic-doc"><span>OCR</span><i></i><i></i><i></i><b>Semantic index</b></div><div class="project-info"><p>02 / Distributed AI</p><h3>AI document platform</h3><p>Four independently tested services for OCR, semantic search, authentication, queues, and observability.</p><ul><li>FastAPI</li><li>Docker</li><li>RabbitMQ</li></ul><a href="https://github.com/KhalidM10/microservice-platform" target="_blank" rel="noopener noreferrer">View repository ↗</a></div></article>
-        <article class="project-card reveal" data-category="product ai"><div class="project-graphic graphic-med"><span>MED<br>ASSIST</span><div>13 clinics</div><b>Kenya-first care</b></div><div class="project-info"><p>03 / Health technology</p><h3>MedAssist AI</h3><p>Conservative symptom guidance connected to clinic discovery, appointments, medicine ordering, and role-based administration.</p><ul><li>React</li><li>AI triage</li><li>Role systems</li></ul><a href="https://github.com/KhalidM10/MedAssist-AI" target="_blank" rel="noopener noreferrer">View repository ↗</a></div></article>
-        <article class="project-card reveal" data-category="ai"><div class="project-graphic graphic-water"><div class="wave"></div><strong>67.4%</strong><span>best test accuracy</span></div><div class="project-info"><p>04 / Machine learning</p><h3>Water potability</h3><p>A documented classification study comparing three models across 3,276 chemical measurement records.</p><ul><li>Python</li><li>scikit-learn</li><li>Evaluation</li></ul><a href="https://github.com/KhalidM10/water-quality-ml" target="_blank" rel="noopener noreferrer">View notebook ↗</a></div></article>
-        <article class="project-card reveal" data-category="product"><div class="project-graphic graphic-safari"><span>NAIROBI</span><i>→</i><span>MOMBASA</span><b>Seat 14A · Selected</b></div><div class="project-info"><p>05 / Product in progress</p><h3>SafariGo</h3><p>A Kenya-focused intercity booking product for route discovery, real-time seat state, passenger details, and confirmation.</p><ul><li>TypeScript</li><li>Product design</li><li>Private build</li></ul><span class="muted-link">Private repository</span></div></article>
+
+        <article class="case" id="case-doc-platform" data-name="AI document platform" aria-labelledby="case-doc-title" hidden>
+          <a class="case-back" href="#doc-platform">← cd ../projects</a>
+          <p class="path">projects/doc-platform/README.md <span class="badge">distributed ai</span></p>
+          <h1 id="case-doc-title" tabindex="-1">AI document platform</h1>
+          <p class="case-lede">A document management platform built as a production-style microservice system. Users upload PDFs, Word files, or scans; the platform extracts the text, processes it in the background with AI, and makes everything searchable by meaning rather than keywords.</p>
+          <dl class="case-meta">
+            <div><dt>role</dt><dd>Architecture, back-end services, CI/CD, observability</dd></div>
+            <div><dt>type</dt><dd>Cloud-native systems project</dd></div>
+            <div><dt>stack</dt><dd>FastAPI · PostgreSQL · RabbitMQ · Celery · Redis · Docker</dd></div>
+            <div><dt>links</dt><dd><a href="https://github.com/KhalidM10/microservice-platform" target="_blank" rel="noopener noreferrer">Source on GitHub ↗</a></dd></div>
+          </dl>
+
+          <h2>Goal</h2>
+          <p>I wanted one project that covered the whole lifecycle of a cloud-native system, not just a single service: distributed communication, background processing, CI/CD, monitoring, security, and AI. Every one of those concerns had to work in practice, with tests and dashboards to prove it.</p>
+
+          <h2>How it works</h2>
+          <p>A user registers and logs in through the gateway, then creates a document or uploads a file. Text is extracted automatically (pdfplumber for PDFs, Tesseract OCR for images). The document service saves it and publishes a <code>document.created</code> event to RabbitMQ; the notification service picks that up and records a notification for the user. In parallel, a Celery worker generates embeddings and extracts entities, a category, and sentiment.</p>
+          <pre class="case-diagram" aria-label="Architecture diagram">client ─► api-gateway :8080   JWT · rate limit · security headers · circuit breaker
+              ├─► document-service   CRUD · upload/OCR · summarise · semantic search
+              │        └─ publishes document.created ─► RabbitMQ ─► notification-service
+              ├─► auth-service       register · login · JWT issue/refresh
+              └─► notification-service
+
+celery worker (Redis broker)   embeddings · entities · category · sentiment
+PostgreSQL (3 databases) · Redis (rate limits, AI cache) · Prometheus + Grafana</pre>
+
+          <h2>The services</h2>
+          <ul class="case-list">
+            <li><b>API gateway.</b> The single public entry point. It validates JWTs, rate-limits by role through Redis (10, 100, or 1,000 requests a minute for guests, users, and admins), adds security headers, tags every request with a correlation ID, and uses a circuit breaker so one failing service doesn’t take the rest down.</li>
+            <li><b>Auth service.</b> Registration and login with bcrypt-hashed passwords; short-lived access tokens (30 minutes) and longer refresh tokens (7 days).</li>
+            <li><b>Document service.</b> CRUD, file upload with text extraction, AI summaries, tag suggestions, and semantic search, with documents scoped to their owner.</li>
+            <li><b>Notification service.</b> Consumes RabbitMQ events so notifications never slow down a user’s request.</li>
+          </ul>
+
+          <h2>AI that degrades gracefully</h2>
+          <p>Every AI feature has a fallback, so the core platform works with no OpenAI key at all. Summaries use GPT-4o-mini, or fall back to an extractive summary. Semantic search uses <code>text-embedding-3-small</code> vectors, or falls back to TF-IDF cosine similarity. Tag suggestions, entity extraction, and sentiment are skipped cleanly rather than failing. AI results are cached in Redis for an hour to keep costs and latency down.</p>
+
+          <h2>Testing, delivery, and observability</h2>
+          <ul class="case-list">
+            <li><b>Tests on every service</b>, with an 80% coverage floor enforced: document 80%, auth 86%, notification 83%, gateway 82%.</li>
+            <li><b>GitHub Actions</b> runs the four test suites as a matrix on every push and pull request, then builds and pushes tagged Docker images.</li>
+            <li><b>Prometheus and Grafana</b> scrape every service’s <code>/metrics</code>; an auto-provisioned dashboard shows request rate, error rate, P95/P99 latency, and health. OpenTelemetry tracing runs on every service.</li>
+            <li><b>A Typer CLI</b> for logging in, creating, listing, summarising, and searching documents from the terminal.</li>
+          </ul>
+
+          <h2>What I learned</h2>
+          <p>Splitting a system into services is the easy part; making it observable and resilient is the real work. Designing the fallbacks first made the AI features feel dependable instead of fragile, which is the same principle I apply to product work.</p>
+          <nav class="case-nav" aria-label="More projects"><a href="#/projects/continental">← continental</a><a href="#/projects/medassist">medassist-ai →</a></nav>
+        </article>
+
+        <article class="case" id="case-medassist" data-name="MedAssist AI" aria-labelledby="case-med-title" hidden>
+          <a class="case-back" href="#medassist">← cd ../projects</a>
+          <p class="path">projects/medassist-ai/README.md <span class="badge">health tech</span></p>
+          <h1 id="case-med-title" tabindex="-1">MedAssist AI</h1>
+          <p class="case-lede">A Kenya-first health platform that combines conservative AI symptom triage with the next step a patient actually needs: finding a vetted clinic, booking an appointment, or ordering over-the-counter medicine, priced in shillings. Clinics get a management dashboard on the other side.</p>
+          <dl class="case-meta">
+            <div><dt>role</dt><dd>Full-stack: product, API, front end, infrastructure</dd></div>
+            <div><dt>type</dt><dd>Health-tech product</dd></div>
+            <div><dt>stack</dt><dd>React 19 · TypeScript · FastAPI · PostgreSQL · Docker · AWS</dd></div>
+            <div><dt>links</dt><dd><a href="https://github.com/KhalidM10/MedAssist-AI" target="_blank" rel="noopener noreferrer">Source on GitHub ↗</a></dd></div>
+          </dl>
+
+          <h2>The problem</h2>
+          <p>Symptom checkers usually stop at advice, and clinic directories usually start with no context. A patient in Nairobi with a worrying symptom needs both: an honest sense of how urgent it is, then a clear path to care they can reach and afford. MedAssist joins those steps in one flow.</p>
+
+          <h2>What it does</h2>
+          <ul class="case-list">
+            <li><b>AI triage.</b> A short symptom assessment returns a severity level (mild, moderate, or urgent) in under a minute. The logic is deliberately conservative: when it is uncertain, it escalates to professional care, and urgent results surface Kenya’s emergency line.</li>
+            <li><b>Clinic discovery and booking.</b> Patients compare vetted clinics, see their doctors, and book from real available slots. The seed data covers 13 clinics.</li>
+            <li><b>Medicine ordering.</b> An over-the-counter catalogue priced in KES, with delivery.</li>
+            <li><b>Clinic dashboard.</b> Clinic admins manage appointment status and see revenue and trend analytics; subscription tiers make it a SaaS product for clinics.</li>
+          </ul>
+
+          <h2>Architecture</h2>
+          <pre class="case-diagram" aria-label="Architecture diagram">React 19 SPA (Vercel CDN)
+        │ /api/*
+        ▼
+Nginx reverse proxy (SSL via Let's Encrypt)
+        ▼
+FastAPI backend (Docker)  routes: auth · triage · clinics · appointments · orders · dashboard
+        ▼
+PostgreSQL 15 (JSONB for medical data) · planned on AWS RDS af-south-1</pre>
+          <p>The back end separates routes, Pydantic schemas, SQLAlchemy models, and a services layer that holds the business logic (the triage engine, booking, and analytics). The front end uses Zustand for authentication state, TanStack Query for server state and caching, React Hook Form with Zod for validated forms, and Recharts for clinic analytics.</p>
+
+          <h2>Roles and security</h2>
+          <p>There are three roles: patient, clinic admin, and super admin. Every API route declares which role it needs. Authentication uses JWTs signed with python-jose, passwords are hashed with bcrypt, and allowed origins are configured per environment. The deployment plan includes M-Pesa (Safaricom Daraja) credentials for local payments.</p>
+
+          <h2>Built for Kenyan networks</h2>
+          <p>I set performance targets for 3G rather than office Wi-Fi: under 3 seconds for the landing page and dashboard, under 2 seconds for a triage result, and under 500 ms time-to-first-byte. Vite code-splitting, CDN edge caching, query caching, async FastAPI handlers, and gzip at Nginx are how it gets there.</p>
+
+          <h2>Delivery</h2>
+          <p>Docker Compose runs the database, API, front end, and Nginx locally with one command, plus a hot-reload dev mode. GitHub Actions handles CI/CD; there is a backend smoke test, a TypeScript type check, and a production build check, plus a written deployment checklist and SSL renewal runbook.</p>
+
+          <h2>Responsibility</h2>
+          <p>MedAssist is a triage and guidance tool, not a diagnostic or prescribing service. Designing for that honestly (conservative defaults, clear escalation, no false certainty) was the most important product decision in the project.</p>
+          <nav class="case-nav" aria-label="More projects"><a href="#/projects/doc-platform">← doc-platform</a><a href="#/projects/water">water-potability →</a></nav>
+        </article>
+
+        <article class="case" id="case-water" data-name="Water potability" aria-labelledby="case-water-title" hidden>
+          <a class="case-back" href="#water">← cd ../projects</a>
+          <p class="path">projects/water-potability/README.md <span class="badge">ml study</span></p>
+          <h1 id="case-water-title" tabindex="-1">Water potability</h1>
+          <p class="case-lede">A machine-learning study that asks whether water is safe to drink based only on measurable chemistry, comparing three classifiers on 3,276 samples and being honest about what the data can and can’t tell us.</p>
+          <dl class="case-meta">
+            <div><dt>role</dt><dd>Data analysis, modelling, evaluation, demo app</dd></div>
+            <div><dt>type</dt><dd>Applied ML study</dd></div>
+            <div><dt>stack</dt><dd>Python · pandas · scikit-learn · Jupyter · Streamlit</dd></div>
+            <div><dt>links</dt><dd><a href="https://github.com/KhalidM10/water-quality-ml" target="_blank" rel="noopener noreferrer">Notebook on GitHub ↗</a></dd></div>
+          </dl>
+
+          <h2>Question</h2>
+          <p>Can a model judge whether water is potable from nine physicochemical measurements: pH, hardness, dissolved solids, chloramines, sulfate, conductivity, organic carbon, trihalomethanes, and turbidity? The target is binary: safe (1) or not safe (0).</p>
+
+          <h2>Method</h2>
+          <ul class="case-list">
+            <li><b>Cleaning.</b> Several features have missing values. I filled them with the median, which is robust to the skew and outliers in this data.</li>
+            <li><b>Split.</b> 80% training and 20% test, with a fixed random seed so the results are reproducible.</li>
+            <li><b>Scaling.</b> Features are standardised for the linear model; tree models use the raw values.</li>
+            <li><b>Models.</b> Logistic regression as the baseline, then random forest and gradient boosting.</li>
+          </ul>
+
+          <h2>Results</h2>
+          <div class="case-table" role="table" aria-label="Model accuracy">
+            <div role="row"><span role="columnheader">model</span><span role="columnheader">test accuracy</span></div>
+            <div role="row"><span role="cell">Logistic regression</span><span role="cell">62.8%</span></div>
+            <div role="row" class="best"><span role="cell">Random forest</span><span role="cell">67.4%</span></div>
+            <div role="row"><span role="cell">Gradient boosting</span><span role="cell">66.9%</span></div>
+          </div>
+          <p>Random forest performed best. Feature importance ranked sulfate, pH, and hardness highest, but the scores were close across all nine features. That points to potability depending on interactions between indicators rather than any single threshold, which also explains why a linear model struggles.</p>
+
+          <h2>Reading the numbers honestly</h2>
+          <p>67% is a real improvement over the linear baseline, but it is not good enough to decide whether someone drinks a glass of water. The point of the study is the evaluation itself: knowing where the model’s ceiling is with this data, and why. In a real deployment, a model like this would flag samples for lab testing, never replace it.</p>
+
+          <h2>Demo app</h2>
+          <p>A small Streamlit app loads the trained model, reports its test accuracy, and lets you enter the nine measurements to get a prediction, so the study can be explored without opening the notebook.</p>
+
+          <h2>Next steps</h2>
+          <p>Hyperparameter tuning, k-fold cross-validation instead of a single split, and handling class imbalance (for example with SMOTE) are the clear next experiments, along with reporting precision and recall for the “safe” class, which is the costly one to get wrong.</p>
+          <nav class="case-nav" aria-label="More projects"><a href="#/projects/medassist">← medassist-ai</a><a href="#/projects/safarigo">safarigo →</a></nav>
+        </article>
+
+        <article class="case" id="case-safarigo" data-name="SafariGo" aria-labelledby="case-safari-title" hidden>
+          <a class="case-back" href="#safarigo">← cd ../projects</a>
+          <p class="path">projects/safarigo/README.md <span class="badge wip">◐ in progress</span></p>
+          <h1 id="case-safari-title" tabindex="-1">SafariGo</h1>
+          <p class="case-lede">An intercity bus booking product for Kenya, built around the moment that matters most to a traveller: knowing the seat they picked is really theirs.</p>
+          <dl class="case-meta">
+            <div><dt>role</dt><dd>Product design and engineering</dd></div>
+            <div><dt>type</dt><dd>Product in progress · private repository</dd></div>
+            <div><dt>stack</dt><dd>TypeScript</dd></div>
+            <div><dt>links</dt><dd>Source is private. Happy to walk through it on a call.</dd></div>
+          </dl>
+
+          <h2>Why this product</h2>
+          <p>Booking intercity travel in Kenya, say from Nairobi to Mombasa, can still mean phone calls, queues, and uncertainty about which seat you actually have. SafariGo is my attempt at a booking flow that feels as certain as boarding the bus.</p>
+
+          <h2>The flow</h2>
+          <ul class="case-list">
+            <li><b>Route discovery.</b> Pick an origin, a destination, and a date, then compare departures.</li>
+            <li><b>Real-time seat state.</b> A seat map that reflects what is actually available, so a traveller can trust the seat they choose.</li>
+            <li><b>Passenger details.</b> A short, mobile-friendly form for the details an operator needs.</li>
+            <li><b>Confirmation.</b> A clear summary of route, time, and seat that a traveller can show at boarding.</li>
+          </ul>
+
+          <h2>Design priorities</h2>
+          <p>Most bookings will happen on a phone, often on the move, so the seat map, forms, and confirmation are designed for small screens and patchy connections first. The hardest engineering problem is seat state: holding a seat long enough to finish paying without locking it forever when someone abandons the booking.</p>
+
+          <h2>Status</h2>
+          <p>SafariGo is in active development in a private repository. I’m happy to walk through the product and code in an interview.</p>
+          <nav class="case-nav" aria-label="More projects"><a href="#/projects/water">← water-potability</a><a href="#/projects/continental">continental →</a></nav>
+        </article>
       </div>
-    </section>
 
-    <section class="experience section" id="experience"><div class="shell"><header class="section-heading centered reveal"><p class="eyebrow">04 / Background</p><h2>Experience meets <span>continuous learning.</span></h2></header><div class="history-grid">
-      <div class="history-column reveal"><h3>Experience</h3><article><time>2024 — Now</time><div><h4>Independent software developer</h4><p>Shipping web and mobile products from requirements and architecture through QA and deployment.</p></div></article><article><time>2023 — 2024</time><div><h4>Software development intern</h4><p>Contributed within active development cycles using collaborative workflows, maintenance, and code review.</p></div></article></div>
-      <div class="history-column reveal"><h3>Education</h3><article><time>2022 — 2026</time><div><h4>BSc Software Development</h4><p>Istanbul Aydin University · AI, cloud computing, mobile development, testing, algorithms, and system design.</p></div></article><article><time>Ongoing</time><div><h4>Independent practice</h4><p>Production React systems, applied ML evaluation, distributed services, accessibility, and delivery.</p></div></article></div>
-    </div></div></section>
+      <footer class="editor-foot"><span>Nairobi → Istanbul · designed and built by hand</span><a href="#readme">back to readme.md ↑</a></footer>
+    </main>
+  </div>
 
-    <section class="contact section shell" id="contact"><div class="contact-panel reveal"><div class="contact-copy"><p class="eyebrow">05 / Let’s work together</p><h2>Have a problem<br>worth <span>solving?</span></h2><p>I’m open to software engineering and applied AI opportunities. Tell me what you’re building and where it needs to go.</p><div class="contact-links"><a href="mailto:lidumoha9@gmail.com">Email ↗</a><a href="https://www.linkedin.com/in/khalid-rabe-668216280/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="https://wa.me/905057612920" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a><a href="https://github.com/KhalidM10" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div></div>
-      <form class="contact-form" id="contact-form" novalidate><div class="form-trap" aria-hidden="true"><label for="website">Website</label><input id="website" name="website" type="text" tabindex="-1" autocomplete="off"></div><div class="field"><label for="name">Your name</label><input id="name" name="name" type="text" autocomplete="name" maxlength="100" placeholder="Jane Doe" required><span class="form-error" id="name-error">Enter your name.</span></div><div class="field"><label for="email">Email address</label><input id="email" name="email" type="email" autocomplete="email" maxlength="254" placeholder="jane@company.com" required><span class="form-error" id="email-error">Enter a valid email.</span></div><div class="field"><label for="subject">What is this about?</label><input id="subject" name="subject" type="text" maxlength="150" placeholder="A role, project or idea" required><span class="form-error" id="subject-error">Enter a subject.</span></div><div class="field"><label for="message">A few details</label><textarea id="message" name="message" maxlength="3000" placeholder="Tell me about the challenge…" required></textarea><span class="form-error" id="message-error">Enter your message.</span></div><button class="button primary" type="submit">Send message <span>↗</span></button><div class="form-status form-success" id="form-success" role="status">Message sent. I’ll get back to you soon.</div><div class="form-status form-send-error" id="form-send-error" role="alert">Could not send. Email me at <a href="mailto:lidumoha9@gmail.com">lidumoha9@gmail.com</a>.</div></form>
-    </div></section>
-  </main>
-  <footer class="shell"><a class="brand" href="#top"><span class="brand-mark">K</span><span>Khalid Rabe<small>Software / AI engineer</small></span></a><p>Nairobi → Istanbul<br>Designed and built with intent.</p><a href="#top">Back to top ↑</a></footer>
+  <div class="palette" id="palette" role="dialog" aria-modal="true" aria-label="Command menu" hidden>
+    <div class="palette-box">
+      <input id="palette-input" type="text" placeholder="Type a command or file…" autocomplete="off" role="combobox" aria-expanded="true" aria-controls="palette-list" aria-autocomplete="list">
+      <ul id="palette-list" role="listbox"></ul>
+      <p class="palette-foot"><kbd>↑↓</kbd> navigate <kbd>↵</kbd> open <kbd>esc</kbd> close</p>
+    </div>
+  </div>
 </body>
 </html>
